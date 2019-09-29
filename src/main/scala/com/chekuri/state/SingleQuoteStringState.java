@@ -1,0 +1,22 @@
+package com.chekuri.state;
+
+import com.chekuri.TokenizerContext;
+import com.chekuri.utilities.StringUtilities;
+
+public class SingleQuoteStringState extends TokenizerState {
+    public SingleQuoteStringState(TokenizerContext _context) {
+        context = _context;
+    }
+
+    @Override
+    public void eatChars() {
+        context.token = "";
+        do {
+            context.token += context.currentCharacter;
+            if(!collectChar()) {
+                return;
+            }
+        } while (context.currentCharacter != '\'' || StringUtilities.isEscapedString(context.token));
+        context.token += context.currentCharacter;
+    }
+}
