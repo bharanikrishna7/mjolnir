@@ -10,13 +10,12 @@ public class AlphaNumericState extends TokenizerState {
     @Override
     public void eatChars() {
         context.token = "";
-        do {
+        while(checkAlphaNumeric(context.peekNext())) {
             context.token += context.currentCharacter;
             if(!collectChar()) {
                 return;
             }
-        } while (checkAlphaNumeric(context.peekNext()));
+        }
         context.token += context.currentCharacter;
-
     }
 }

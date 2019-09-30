@@ -11,6 +11,7 @@ public class NumericState extends TokenizerState {
     public void eatChars() {
         context.token = "";
         while(Character.isDigit(context.peekNext())) {
+            context.token += context.currentCharacter;
             if(!collectChar()) {
                 return;
             }
