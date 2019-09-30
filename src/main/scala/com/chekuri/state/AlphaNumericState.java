@@ -15,6 +15,8 @@ public class AlphaNumericState extends TokenizerState {
             if(!collectChar()) {
                 return;
             }
-        } while (checkAlphaNumeric(context.currentCharacter));
+        } while (checkAlphaNumeric(context.peekNext()));
+        context.token += context.currentCharacter;
+
     }
 }

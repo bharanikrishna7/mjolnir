@@ -8,12 +8,6 @@ public class WhitespaceState extends TokenizerState {
     }
     @Override
     public void eatChars() {
-        context.token = "";
-        do {
-            context.token = context.token.concat(makeString(context.currentCharacter));
-            if(!collectChar()) {
-                return;
-            }
-        } while(checkWhitespaceCondition(context.peekNext()));
+        context.token = " ";
     }
 }

@@ -10,12 +10,11 @@ public class NumericState extends TokenizerState {
     @Override
     public void eatChars() {
         context.token = "";
-        do {
-            context.token += context.currentCharacter;
+        while(Character.isDigit(context.peekNext())) {
             if(!collectChar()) {
                 return;
             }
-        } while (Character.isDigit(context.currentCharacter));
-        logger.debug("Generated Token -- " + context.token);
+        }
+        context.token += context.currentCharacter;
     }
 }

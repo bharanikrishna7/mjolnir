@@ -13,8 +13,8 @@ class Message
 
 int main()
 {
-    Message c;    // Creating an object
-    c.display();  // Calling the function
+    Message c;
+    c.display();
 
     return 0;
 }
