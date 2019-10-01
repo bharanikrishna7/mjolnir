@@ -17,11 +17,11 @@ class CppTokenizerSpec extends FlatSpec {
     var actual: ListBuffer[String] = new ListBuffer[String]()
 
     while (!token.equals(null) && !(token.equals("\u0000"))) {
-      if (token == "\n") {
-        token = "< newline >"
-      }
       if (token.trim != "") {
         actual.append(token)
+      }
+      if (token == "\n") {
+        token = "< newline >"
       }
       logger.info(s" -- $token")
       token = tokenizer.getToken
@@ -37,63 +37,44 @@ class CppTokenizerSpec extends FlatSpec {
     "<",
     "iostream",
     ">",
-    "< newline >",
-    "< newline >",
     "using",
     "namespace",
     "std",
     ";",
-    "< newline >",
-    "< newline >",
     "class",
     "Message",
-    "< newline >",
     "{",
-    "< newline >",
     "public",
     ":",
-    "< newline >",
-    "< newline >",
     "void",
     "display",
     "(",
     ")",
     "{",
-    "< newline >",
     "cout",
     "<<",
     "\"Hello World\\n\"",
     ";",
-    "< newline >",
     "}",
-    "< newline >",
     "}",
     ";",
-    "< newline >",
-    "< newline >",
     "int",
     "main",
     "(",
     ")",
-    "< newline >",
     "{",
-    "< newline >",
     "Message",
     "c",
     ";",
-    "< newline >",
     "c",
     ".",
     "display",
     "(",
     ")",
     ";",
-    "< newline >",
-    "< newline >",
     "return",
     "0",
     ";",
-    "< newline >",
     "}"
   )
 }
