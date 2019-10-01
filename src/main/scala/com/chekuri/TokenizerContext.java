@@ -25,7 +25,7 @@ public class TokenizerContext {
         currentCharacter = '\0';
         lineCount = 0;
         oneCharTokens = new HashSet<String>(
-                Arrays.asList("\n", "#", "<", ">", "{", "}", "[", "]", "(", ")", ":", "=", "+", "-", "*", ".", ";")
+                Arrays.asList("\n", "#", "<", ">", "{", "}", "[", "]", "(", ")", ":", "=", "+", "-", "*", ".", ";", ",")
         );
         twoCharTokens = new HashSet<String>(
                 Arrays.asList("<<", ">>", "::", "++", "--", "==", "+=", "-=", "*=", "/=", "!=")
