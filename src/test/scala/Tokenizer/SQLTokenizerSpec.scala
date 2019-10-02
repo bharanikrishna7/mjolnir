@@ -12,7 +12,7 @@ class SQLTokenizerSpec extends FlatSpec {
 
   "Tokenizer" should "correctly grab tokens from a SQL file" in {
     val sampleSQLReader = new reader("src/test/resources/SampleSQLCode.sql")
-    val tokenizer: Tokenizer = new Tokenizer(sampleSQLReader, true)
+    val tokenizer: Tokenizer = new Tokenizer(sampleSQLReader, true, false)
     var token: String = tokenizer.getToken
     var actual: ListBuffer[String] = new ListBuffer[String]()
 
@@ -88,6 +88,10 @@ class SQLTokenizerSpec extends FlatSpec {
     "IS",
     "NOT",
     "NULL",
+    "AND",
+    "email",
+    "LIKE",
+    "'%@bmail.com'",
     ";"
   )
 }

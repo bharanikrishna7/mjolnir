@@ -16,5 +16,9 @@ public class MultiLineCommentState extends TokenizerState {
                 return;
             }
         } while(!(context.currentCharacter == '/' && context.previousCharacter == '*'));
+        context.token += context.currentCharacter;
+        if(!context.enableComments) {
+            context.token = "";
+        }
     }
 }

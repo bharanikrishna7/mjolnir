@@ -122,7 +122,7 @@ abstract public class TokenizerState {
 
     public boolean checkSingleLineCommentCondition(char character) {
         boolean result = false;
-        if(context.previousCharacter == '/' && character == '/') {
+        if(character == '/' && context.peekNext() == '/') {
             result = true;
         }
         return result;
@@ -130,7 +130,7 @@ abstract public class TokenizerState {
 
     public boolean checkMultiLineCommentCondition(char character) {
         boolean result = false;
-        if(context.previousCharacter == '/' && character == '*') {
+        if(character == '/' && context.peekNext() == '*') {
             result = true;
         }
         return result;
@@ -138,7 +138,7 @@ abstract public class TokenizerState {
 
     public boolean checkSingleLineSQLCommentCondition(char character) {
         boolean result = false;
-        if(context.previousCharacter == '-' && character == '-') {
+        if(character == '-' && context.peekNext() == '-') {
             result = true;
         }
         return result;

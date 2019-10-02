@@ -16,5 +16,8 @@ public class SingleLineSQLCommentState extends TokenizerState {
                 return;
             }
         } while(context.currentCharacter != '\n');
+        if(!context.enableComments) {
+            context.token = "";
+        }
     }
 }

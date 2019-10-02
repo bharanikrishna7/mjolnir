@@ -19,6 +19,7 @@ public class TokenizerContext {
     public char currentCharacter;
     public int lineCount;
     public boolean enableSQLParsing;
+    public boolean enableComments;
 
     private void defaultInit() {
         previousCharacter = '\0';
@@ -34,6 +35,7 @@ public class TokenizerContext {
         initializeStates();
         logger.info("Set Initial State to Begin State.");
         currentState = beginState;
+        enableComments = false;
     }
 
     public void initializeStates() {
@@ -58,7 +60,14 @@ public class TokenizerContext {
     }
 
     public TokenizerContext(boolean _enableSQLParsing) {
+        defaultInit();
         enableSQLParsing = _enableSQLParsing;
+    }
+
+    public TokenizerContext(boolean _enableSQLParsing, boolean _enableComments) {
+        defaultInit();
+        enableSQLParsing = _enableSQLParsing;
+        enableComments = _enableComments;
     }
 
     public TokenizerContext(reader _inputStream) {
@@ -70,6 +79,13 @@ public class TokenizerContext {
         defaultInit();
         enableSQLParsing = _enableSQLParsing;
         inputStream = _inputStream;
+    }
+
+    public TokenizerContext(reader _inputStream, boolean _enableSQLParsing, boolean _enableComments) {
+        defaultInit();
+        inputStream = _inputStream;
+        enableSQLParsing = _enableSQLParsing;
+        enableComments = _enableComments;
     }
 
     public char peekNext() {

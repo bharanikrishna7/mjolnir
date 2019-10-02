@@ -12,7 +12,7 @@ class CppTokenizerSpec extends FlatSpec {
 
   "Tokenizer" should "correctly grab tokens from a C++ file" in {
     val helloWorldReader = new reader("src/test/resources/HelloWorld.cpp")
-    val tokenizer: Tokenizer = new Tokenizer(helloWorldReader, false)
+    val tokenizer: Tokenizer = new Tokenizer(helloWorldReader, false, false)
     var token: String = tokenizer.getToken
     var actual: ListBuffer[String] = new ListBuffer[String]()
 

@@ -11,14 +11,12 @@ public final class StringUtilities {
         return punctuators.contains(character);
     }
 
-    public static boolean isEscapedString(String value) {
-        int backSlashCount = 0;
-        for(int index = value.length() - 1; index >= 0; index--) {
-            if(value.charAt(index) == '\\') {
-                backSlashCount++;
-            }
+    public static boolean isEscaped(char value) {
+        boolean result = false;
+        if(value == '\\') {
+            result = true;
         }
-        return (backSlashCount % 2 == 0);
+        return result;
     }
 
     public static boolean isEnglishLetter(char character) {

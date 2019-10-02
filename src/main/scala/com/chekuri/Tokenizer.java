@@ -15,6 +15,11 @@ public class Tokenizer {
         tokenizerState = tokenizerContext.beginState;
     }
 
+    public Tokenizer(reader inputStream, boolean enableSQLParsing, boolean enableComments) {
+        tokenizerContext = new TokenizerContext(inputStream, enableSQLParsing, enableComments);
+        tokenizerState = tokenizerContext.beginState;
+    }
+
     public boolean canRead() {
         // can read file and make tokens
         return tokenizerState.canRead();

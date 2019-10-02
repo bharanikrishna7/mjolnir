@@ -16,7 +16,7 @@ public class DoubleQuoteStringState extends TokenizerState {
             if(!collectChar()) {
                 return;
             }
-        } while (context.currentCharacter != '\"' || StringUtilities.isEscapedString(context.token));
+        } while (context.currentCharacter != '\"' || StringUtilities.isEscaped(context.previousCharacter));
         context.token += context.currentCharacter;
     }
 }
