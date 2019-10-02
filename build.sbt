@@ -1,4 +1,4 @@
-ThisBuild / version := "0.2.1"
+ThisBuild / version := "0.3.1"
 ThisBuild / scalaVersion := "2.13.0"
 ThisBuild / organization := "com.chekuri"
 ThisBuild / developers := List(
